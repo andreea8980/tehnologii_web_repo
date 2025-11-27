@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eveniment Custom și DOM</title>
+    <style>
+        body { font-family: sans-serif; }
+        #myBtn { padding: 10px 20px; cursor: pointer; }
+    </style>
+    
+    <script>
+        window.onload = () => {
+            const button = document.getElementById('myBtn');
+            const header = document.getElementById('myHeader');
+
+            const customEvent = new CustomEvent('customUpdate', {
+                detail: {
+                    timestamp: new Date().toLocaleTimeString(),
+                    message: 'titlul a fost actualizat'
+                }
+            });
+
+            const clickEventHandler = () => {
+                button.textContent = 'a fost apasat';
+                button.style.backgroundColor = '#f0f0f0';
+                
+                header.dispatchEvent(customEvent); 
+            }
+
+            const customEventHandler = (event) => {
+                console.log('--- Eveniment Custom Primit ---');
+                console.log(`Detalii: ${event.detail.message}`);
+                console.log(`Timestamp: ${event.detail.timestamp}`);
+                
+                header.textContent = `Titlu actualizat la ${event.detail.timestamp}`;
+            }
+
+            button.addEventListener("click", clickEventHandler); 
+            
+            header.addEventListener("customUpdate", customEventHandler);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="myHeader">Astept evenimente custom...</h1>
+    <button id="myBtn">Apasa pentru a trimite evenimentul</button>
+</body>
+</html>

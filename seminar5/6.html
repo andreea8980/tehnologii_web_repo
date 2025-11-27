@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Form GET resursă</title>
+  <style>
+    body { font-family: Arial; max-width: 500px; margin: 30px auto; }
+    form { margin-bottom: 16px; }
+    label { display: block; margin-bottom: 4px; }
+    input { margin-bottom: 8px; padding: 4px 6px; width: 100px; }
+    button { padding: 4px 8px; }
+    #result { margin-top: 16px; padding: 8px; border: 1px solid #ccc; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h1>Caută resursă după ID</h1>
+
+  <form id="resourceForm">
+    <label>
+      ID resursă:
+      <input type="number" id="resourceId" required min="1">
+    </label>
+    <button type="submit">Caută</button>
+  </form>
+
+  <div id="result">Rezultatul va apărea aici</div>
+
+  <script>
+    const form = document.getElementById('resourceForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('resourceId').value;
+
+      try {
+        const response = await fetch(`http://localhost:3000/resources/${id}`);
+        if (!response.ok) {
+          resultDiv.textContent = `resursa cu ID-ul ${id} nu a fost gasita (status ${response.status})`;
+          return;
+        }
+        const data = await response.json();
+        resultDiv.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        resultDiv.textContent = `Eroare la cerere: ${err}`;
+      }
+    });
+  </script>
+</body>
+</html>

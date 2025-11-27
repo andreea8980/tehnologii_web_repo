@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendă simplă</title>
+  <style>
+    table { border-collapse: collapse; width: 50%; margin-top: 16px; }
+    th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+    form { margin-top: 16px; }
+    label { display: block; margin-bottom: 4px; }
+    input { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Agendă</h1>
+
+  <form id="contactForm">
+    <label>
+      Nume:
+      <input type="text" id="name" required>
+    </label>
+    <label>
+      Telefon:
+      <input type="text" id="phone" required>
+    </label>
+    <button type="submit">Adaugă contact</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nume</th>
+        <th>Telefon</th>
+      </tr>
+    </thead>
+    <tbody id="contactsBody">
+    </tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const contactsBody = document.getElementById('contactsBody');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+
+      const tr = document.createElement('tr');
+      const tdName = document.createElement('td');
+      tdName.textContent = name;
+      const tdPhone = document.createElement('td');
+      tdPhone.textContent = phone;
+
+      tr.appendChild(tdName);
+      tr.appendChild(tdPhone);
+      contactsBody.appendChild(tr);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
