@@ -2,7 +2,7 @@ function expGen() {
     const cache = {};
 
     const exp = (x, n) => {
-        const key = x + ',' + n; 
+        const key = x + ',' + n; // cheie unică pentru x^n
 
         if (cache[key] !== undefined) {
             console.log('found', key);
@@ -25,4 +25,6 @@ function expGen() {
 }
 
 const exp = expGen();
+
 console.log(exp(2, 0)); 
+console.log(exp(2, 5)); 
