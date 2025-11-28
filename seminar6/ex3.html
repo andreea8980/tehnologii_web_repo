@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <style>
+       body {
+        font-family: Arial, sans-serif;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 300px; 
+        text-align: center;
+        border: 1px solid #ccc; 
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .row {
+        overflow: hidden; 
+    }
+
+    .square {
+        width: 98px; 
+        height: 98px;
+        border: 1px solid #ccc;
+        box-sizing: border-box; 
+        float: left; 
+        background-color: #eee; 
+        cursor: pointer;
+        font-size: 3em; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        color: #333;
+    }
+    .square.top { border-top: none; }
+    .square.bottom { border-bottom: none; }
+    .square.left { border-left: none; }
+    .square.right { border-right: none; }
+    
+    .row:not(:first-child) .square {
+        border-top: 1px solid #ccc; 
+    }
+    .row .square:not(:first-child) {
+        border-left: 1px solid #ccc; 
+    }
+
+    .row:first-child .square {
+        border-top: none; 
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        
+        <div class="row">
+            <div class="top left square"></div>
+            <div class="top middle square"></div>
+            <div class="top right square"></div>
+        </div>
+
+        <div class="row">
+            <div class="middle left square"></div>
+            <div class="middle center square"></div>
+            <div class="middle right square"></div>
+        </div>
+
+        <div class="row">
+            <div class="bottom left square"></div>
+            <div class="bottom middle square"></div>
+            <div class="bottom right square"></div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -6,8 +6,7 @@ function increaseSalary(salaries, percent) {
     if (typeof percent !== "number") {
         throw new Error("al doilea parametru trebuie sa fie un nr");
     }
-    const increased = salaries.map(salary => salary * (1 + percent / 100));
-
+    const increased = salaries.map(salary => salary * (1 + percent / 100)); 
     return increased;
 }
 try {

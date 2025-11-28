@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabel</title>
+    <style>
+    table {
+        border-collapse: collapse; 
+    }
+    td, th {
+        padding: 8px 15px;
+        border: 1px solid #ccc;
+    }
+    thead tr{
+        color:black;
+        background-color:white;
+    }
+      tbody tr:nth-child(odd) {
+        background-color: #DDA0DD; 
+    }
+      tbody tr:first-child { 
+        background-color: blue;
+        color: black; 
+    }
+
+    tbody tr:last-child {
+        background-color: green;
+        color: rgb(6, 0, 0);
+    }
+    
+</style>
+    
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Faculty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Ionut</td><td>ASE</td></tr>
+            <tr><td>Mihaela</td><td>Politie</td></tr>
+            <tr><td>Alex</td><td>Secretar</td></tr>
+            <tr><td>Ioana</td><td>Poli</td></tr>
+            <tr><td>Mihaita</td><td>Bibliotecar</td></tr>
+            <tr><td>Denis</td><td>Politie</td></tr> 
+            <tr><td>Marcel</td><td>Pompieri</td></tr> 
+        </tbody>
+    </table>
+
+</body>
+</html>

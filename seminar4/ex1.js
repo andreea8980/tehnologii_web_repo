@@ -9,6 +9,7 @@ class Stream{
         }
     }
 
+
     get next(){
         const current=this.#value;
         this.#value=this.#value+2;
@@ -18,6 +19,6 @@ class Stream{
 
 const stream=new Stream(3);
 for(let i=0;i<10;i++){
-    console.log(stream.next);
+    console.log(stream.next); 
 }
 

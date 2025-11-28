@@ -33,7 +33,6 @@ class Browser extends Software {
     }
 }
 
-// Test
 const chrome = new Browser('Chrome')
 const adblock = new Plugin('AdBlock')
 const darkmode = new Plugin('DarkMode')
@@ -41,6 +40,6 @@ const darkmode = new Plugin('DarkMode')
 chrome.install(adblock)
 chrome.install(darkmode)
 
-chrome.run()          // Chrome is running
-chrome.runPlugins()   // AdBlock plugin is activated
-                      // DarkMode plugin is activated
+chrome.run()          
+chrome.runPlugins()   
+                      
